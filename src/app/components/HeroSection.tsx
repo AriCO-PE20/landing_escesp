@@ -50,9 +50,7 @@ export function HeroSection() {
           <span className="text-[#C65A3A]">calidez latina</span>
         </h1>
 
-        <p className="text-[#5A4A46] text-lg md:text-xl">
-          Clases vivas, humanas y llenas de cultura para que hables de verdad.
-        </p>
+      
       </div>
 
       {/* VIDEO */}
