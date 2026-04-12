@@ -1,4 +1,4 @@
-import { Play } from "lucide-react";
+import { Play, Pause } from "lucide-react";
 import { useRef, useState } from "react";
 
 export function HeroSection() {
@@ -18,7 +18,7 @@ export function HeroSection() {
         setIsPlaying(false);
       }
     } catch (err) {
-      console.log(err);
+      console.log("Video error:", err);
     }
   };
 
@@ -37,7 +37,7 @@ export function HeroSection() {
         />
       </div>
 
-      {/* GLOW NATURAL */}
+      {/* 🌅 GLOW WARM */}
       <div className="absolute inset-0">
         <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#C65A3A]/20 blur-[160px] rounded-full" />
         <div className="absolute bottom-[-200px] right-[-100px] w-[600px] h-[600px] bg-[#E07A5F]/20 blur-[160px] rounded-full" />
@@ -50,7 +50,6 @@ export function HeroSection() {
           <span className="text-[#C65A3A]">calidez latina</span>
         </h1>
 
-
       </div>
 
       {/* VIDEO */}
@@ -61,25 +60,28 @@ export function HeroSection() {
           <video
             ref={videoRef}
             src="/vi.mp4"
+            poster="/vi-poster.jpg"
             className="w-full aspect-video object-cover"
             playsInline
             preload="metadata"
           />
 
-          {/* overlay cálido */}
+          {/* overlay suave */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#C65A3A]/10 to-transparent pointer-events-none" />
 
-          {/* PLAY BUTTON */}
-          {!isPlaying && (
-            <button
-              onClick={handleToggle}
-              className="absolute inset-0 flex items-center justify-center"
-            >
-              <div className="w-20 h-20 rounded-full bg-[#C65A3A] hover:bg-[#E07A5F] flex items-center justify-center shadow-xl transition-transform hover:scale-110">
+          {/* PLAY / PAUSE BUTTON */}
+          <button
+            onClick={handleToggle}
+            className="absolute inset-0 flex items-center justify-center"
+          >
+            <div className="w-20 h-20 rounded-full bg-[#C65A3A] hover:bg-[#E07A5F] flex items-center justify-center shadow-xl transition-transform hover:scale-110">
+              {isPlaying ? (
+                <Pause className="w-10 h-10 text-white" />
+              ) : (
                 <Play className="w-10 h-10 text-white ml-1" fill="white" />
-              </div>
-            </button>
-          )}
+              )}
+            </div>
+          </button>
 
         </div>
       </div>
